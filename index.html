@@ -8,37 +8,52 @@
 <body>
 
 <div class="entireConstruction">
-    <div class="card">
-        <div class="card_container">
-            <div class="card_tips">
-                <img src="img/wpf_sim-card-chip.svg" alt="">
-                <img src="img/cib_visa.svg" alt="">
-            </div>
-            <div class="card_number">
-                <span>1111  1111  1111  1111</span>
-            </div>
-            <div class="card_data">
-                <div>
-                    <span>cardholder name</span>
-                    <span>Ivan ivanov</span>
-                </div>
-                <div>
-                    <span>Expires</span>
-                    <span>05/22</span>
+    <div class="cards">
+        <div class="card active">
+            <div class="card-wrapper">
+                <div class="card_container">
+                    <div class="card_tips">
+                        <img src="img/wpf_sim-card-chip.svg" alt="">
+                        <img src="img/cib_visa.svg" alt="">
+                    </div>
+                    <div class="card_number">
+                
+                    </div>
+                    <div class="card_data">
+                        <div class="card_name-container">
+                            <span>cardholder name</span>
+                            <span class="card_name">Ivan ivanov</span>
+                        </div>
+                        <div class="card_date">
+                            <div class="card_date-title">Expires</div>
+                            <span class="card_date-month">05</span>/<span class="card_date-year">22</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
+        <div class="card second">
+            <div class="card-wrapper">
+                <div class="card_container">
+                    <div class="card_dark"></div>
+                    <div class="card_cvv">
+                        <div class="card_cvv-title">CVV</div>
+                        <div class="card_cvv-data"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="input-area">
+
+    <form action="" class="input-area">
         <div class="input-container">
             <div class="input-container-inp">
                 <label for="card-number">Card Number</label>
-            <input type="text" id="card-number">
+                <input type="text" id="card-number" maxlength="19" inputmode="numeric" pattern="[0-9 ]*" placeholder="#### #### #### ####">
             </div>
             <div class="input-container-inp">
                 <label for="card-holder">Card Holder</label>
-                <input type="text" id="card-holder">
+                <input type="text" id="card-holder" maxLength="25" placeholder="Name Surname">
             </div>
             <div class="input-container-inp">
                 <div class="container-inp-selects">
@@ -104,22 +119,17 @@
                     </div>
                 </div>
                 <div class="container-inp-cvv">
-                    <label for="card-cvv">Expiration Date</label>
-                    <input name="month" id="card-cvv" type="text">
-
-                    </input>
+                    <label for="card-cvv">CVV</label>
+                    <input class="card-cvv" name="month" id="card-cvv" type="text" maxlength="3" placeholder="ex: 123">
                 </div>
-
-
             </div>
-
-
-
+            <button class="btn" type="submit">Submit</button>
         </div>
-    </div>
+    </form>
 
 </div>
 
+<script src="js/script.js"></script>
 </body>
 </html>
 
