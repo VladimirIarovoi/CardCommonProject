@@ -3,6 +3,10 @@
     src: url("../src/CREDC___.ttf");
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body{
     background-color: #F8F8F8;
 }
@@ -14,21 +18,49 @@ body{
     margin: 100px auto 0 auto;
 
 }
-.card{
-    font-family: "Credit Card";
 
+.cards {
+    padding-top: 300px;
+    position: relative;
     z-index: 2;
+}
+
+.card {
+    position: absolute;
+    top: 0;
+    left: 70px;
+    font-family: "Credit Card";
     display: flex;
     flex-direction: column;
     background: url(../img/bg-img.png);
     background-size: 100%;
-    max-width: 430px;
-    min-height: 270px;
+    width: 430px;
+    height: 270px;
     border-radius: 30px;
     margin: auto;
+    color: #fff;
+    transform: perspective(1000px) rotateY(180deg) rotateX(0deg) rotateZ(0deg);
     /*padding: 20px 25px 35px 25px*/
     filter: drop-shadow(0px 7px 30px rgba(0, 0, 0, 0.18));
+    transition: all .3s;
+    z-index: 0;
 }
+
+.card.active {
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg) rotateZ(0deg);
+    z-index: 1;
+}
+.card.active-2 {
+    transform: perspective(1000px) rotateY(360deg) rotateX(0deg) rotateZ(0deg);
+    z-index: 1;
+}
+
+.card-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
 .card_container{
     display: flex;
     flex-direction: column;
@@ -44,6 +76,33 @@ body{
     justify-content: space-between;
 }
 
+@keyframes borderLine {
+    from {
+        width: 300%;
+        height: 300px;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+    to {
+        width: 100%;
+        height: 50px;
+        border: 2px solid rgba(255, 255, 255, 0.7);
+    }
+}
+
+
+
+.card_number.active {
+    display: flex;
+    align-items: center;
+    animation-name: borderLine;
+    animation-duration: .3s;
+    width: 100%;
+    height: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    transition: all .3s;
+    padding: 0 5px;
+}
 .card_number span{
     /*font-family: 'Credit Card';*/
     font-style: normal;
@@ -52,6 +111,31 @@ body{
     line-height: 28px;
     letter-spacing: 0.03em;
     color: #FFFFFF;
+}
+
+@keyframes borderLine2 {
+    from {
+        width: 150px;
+        height: 90px;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    to {
+        min-width: 100px;
+        height: 45px;
+        border: 2px solid rgba(255, 255, 255, 0.7);
+    }
+}
+
+.card_name-container {
+    height: 45px;
+}
+.card_name-container.active {
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    animation-name: borderLine2;
+    animation-duration: .3s;
+    border-radius: 8px;
+    padding: 5px 5px;
 }
 
 .card_data{
@@ -91,6 +175,67 @@ body{
 .card_data div:first-child span:last-child{
     font-size: 16px;
 }
+
+@keyframes borderLine3 {
+    from {
+        width: 150px;
+        height: 70px;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    to {
+        width: 70px;
+        height: 45px;
+        border: 2px solid rgba(255, 255, 255, 0.7);
+    }
+}
+.card_date {
+    display: inline-block !important;
+}
+.card_date.active {
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    animation-name: borderLine3;
+    animation-duration: .3s;
+    border-radius: 8px;
+    padding: 5px 5px;
+}
+
+.card_date-title {
+    font-size: 10px;
+    margin-bottom: 4px;
+}
+
+.card.second {
+    padding-top: 100px;
+}
+
+.card_dark {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    top: -50px;
+    left: 0;
+    background: #000;
+    opacity: 0.75;
+}
+
+.card_cvv {
+    text-align: right;
+}
+
+.card_cvv-data {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 50px;
+    font-size: 25px;
+    color: #000;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 0 5px;
+}
+
 .input-area {
     width: 570px;
 }
@@ -178,7 +323,7 @@ body{
 
 .container-inp-cvv input{
     width: 140px;
-    height: 38px;
+    height: 50px;
     border-radius: 5px;
     box-shadow: none;
     border: 1px solid #ced6e0;
@@ -188,4 +333,15 @@ body{
     background: none;
     color: #1a3b5d;
     font-family: "Source Sans Pro", sans-serif;
+}
+
+.btn {
+    height: 50px;
+    padding: 0px 20px 0;
+    background-color: #1a3b5d;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 0.5em;
+    color: #fff;
+    cursor: pointer;
 }
